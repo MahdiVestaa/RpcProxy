@@ -22,7 +22,7 @@
     },
     "bot_drpc": {
       "provider": "drpc",
-      "api_key": "drpc_key_bot"
+      "api_key": "AuFNZjDjxkgXsPtaPiCb5yqbT-ZGCl8R8bGfcs5opQTS"
     },
     "bot_quicknode": {
       "provider": "quicknode",
