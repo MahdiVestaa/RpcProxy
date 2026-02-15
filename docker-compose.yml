@@ -1,0 +1,18 @@
+services:
+  rpc-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rpc-gateway
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "8404:8404"
+    volumes:
+      - ./rpc_routes.json:/app/rpc_routes.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1:8404/healthz >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

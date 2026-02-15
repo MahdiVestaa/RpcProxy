@@ -1,0 +1,147 @@
+{
+  "bind": "*:8080",
+  "metrics_bind": "*:8404",
+  "health_path": "/healthz",
+  "metrics_path": "/metrics",
+  "keys": {
+    "da_drpc": {
+      "provider": "drpc",
+      "api_key": "AuFNZjDjxkgXsPtaPiCb5yoIRBJjXPMR8Jh1rqRhf0fE"
+    },
+    "aspiration_drpc": {
+      "provider": "drpc",
+      "api_key": "AuFNZjDjxkgXsPtaPiCb5yrqAnRa4AQR8JG8hhdoDp16"
+    },
+    "aspiration_dwellir": {
+      "provider": "dwellir",
+      "token": "acab3a24-615b-46b9-af55-7461d2c0fe45"
+    },
+    "killswitch_drpc": {
+      "provider": "drpc",
+      "api_key": "AuFNZjDjxkgXsPtaPiCb5yo930aAGTwR8J9IThukG97E"
+    },
+    "bot_drpc": {
+      "provider": "drpc",
+      "api_key": "drpc_key_bot"
+    },
+    "bot_quicknode": {
+      "provider": "quicknode",
+      "endpoint": "quaint-quaint-theorem",
+      "token": "a5b7d2725326b95b2110a7ff328fc54e05f802c5"
+    },
+    "bot_arbitrum_sequencer": {
+      "provider": "arbitrum_sequencer"
+    },
+    "bot_base_sequencer": {
+      "provider": "base_sequencer"
+    }
+  },
+  "provider_chain_templates": {
+    "drpc": {
+      "arbitrum": {
+        "rpc_url": "https://lb.drpc.live/arbitrum/{{api_key}}",
+        "ws_url": "wss://lb.drpc.live/arbitrum/{{api_key}}"
+      },
+      "base": {
+        "rpc_url": "https://lb.drpc.live/base/{{api_key}}",
+        "ws_url": "wss://lb.drpc.live/base/{{api_key}}"
+      },
+      "hyperevm": {
+        "rpc_url": "https://lb.drpc.live/hyperliquid/{{api_key}}",
+        "ws_url": "wss://lb.drpc.live/hyperliquid/{{api_key}}"
+      },
+      "ethereum": {
+        "rpc_url": "https://lb.drpc.live/ethereum/{{api_key}}",
+        "ws_url": "wss://lb.drpc.live/ethereum/{{api_key}}"
+      },
+      "solana": {
+        "rpc_url": "https://lb.drpc.live/solana/{{api_key}}",
+        "ws_url": "wss://lb.drpc.live/solana/{{api_key}}"
+      }
+    },
+    "quicknode": {
+      "base": {
+        "rpc_url": "https://{{endpoint}}.base-mainnet.quiknode.pro/{{token}}/",
+        "ws_url": "wss://{{endpoint}}.base-mainnet.quiknode.pro/{{token}}/"
+      },
+      "arbitrum": {
+        "rpc_url": "https://{{endpoint}}.arbitrum-mainnet.quiknode.pro/{{token}}/",
+        "ws_url": "wss://{{endpoint}}.arbitrum-mainnet.quiknode.pro/{{token}}/"
+      },
+      "hyperevm": {
+        "rpc_url": "https://{{endpoint}}.hype-mainnet.quiknode.pro/{{token}}/evm",
+        "ws_url": "wss://{{endpoint}}.hype-mainnet.quiknode.pro/{{token}}/nanoreth"
+      },
+      "ethereum": {
+        "rpc_url": "https://{{endpoint}}.quiknode.pro/{{token}}/",
+        "ws_url": "wss://{{endpoint}}.quiknode.pro/{{token}}/"
+      },
+      "solana": {
+        "rpc_url": "https://{{endpoint}}.solana-mainnet.quiknode.pro/{{token}}/",
+        "ws_url": "wss://{{endpoint}}.solana-mainnet.quiknode.pro/{{token}}/"
+      }
+    },
+    "dwellir": {
+      "hyperevm": {
+        "rpc_url": "https://api-hyperliquid-mainnet-evm.n.dwellir.com/{{token}}",
+        "ws_url": "wss://api-hyperliquid-mainnet-evm.n.dwellir.com/{{token}}"
+      },
+      "ethereum": {
+        "rpc_url": "https://api-ethereum-mainnet.n.dwellir.com/{{token}}",
+        "ws_url": "wss://api-ethereum-mainnet.n.dwellir.com/{{token}}"
+      }
+    },
+    "arbitrum_sequencer": {
+      "arbitrum": {
+        "rpc_url": "https://arb1-sequencer.arbitrum.io/rpc"
+      }
+    },
+    "base_sequencer": {
+      "base": {
+        "rpc_url": "https://mainnet-sequencer.base.org"
+      }
+    }
+  },
+  "services": {
+    "da": {
+      "drpc": {
+        "key": "da_drpc",
+        "chains": ["arbitrum", "base", "hyperevm", "ethereum"]
+      }
+    },
+    "bot": {
+      "drpc": {
+        "key": "bot_drpc",
+        "chains": ["arbitrum", "base", "hyperevm", "ethereum"]
+      },
+      "quicknode": {
+        "key": "bot_quicknode",
+        "chains": ["base", "arbitrum", "hyperevm", "ethereum"]
+      },
+      "arbitrum_sequencer": {
+        "key": "bot_arbitrum_sequencer",
+        "chains": ["arbitrum"]
+      },
+      "base_sequencer": {
+        "key": "bot_base_sequencer",
+        "chains": ["base"]
+      }
+    },
+    "aspiration": {
+      "drpc": {
+        "key": "aspiration_drpc",
+        "chains": ["hyperevm", "ethereum"]
+      },
+      "dwellir": {
+        "key": "aspiration_dwellir",
+        "chains": ["hyperevm", "ethereum"]
+      }
+    },
+    "killswitch": {
+      "drpc": {
+        "key": "killswitch_drpc",
+        "chains": ["arbitrum", "base", "hyperevm", "ethereum"]
+      }
+    }
+  }
+}
