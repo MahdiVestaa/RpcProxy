@@ -38,6 +38,12 @@
     },
     "bot_base_sequencer": {
       "provider": "base_sequencer"
+    },
+    "bot_flashbots": {
+      "provider": "flashbots"
+    },
+    "bot_hyperliquid_official": {
+      "provider": "hyperliquid_official"
     }
   },
   "provider_chain_templates": {
@@ -109,6 +115,16 @@
       "base": {
         "rpc_url": "https://mainnet-sequencer.base.org"
       }
+    },
+    "flashbots": {
+      "ethereum": {
+        "rpc_url": "https://rpc.flashbots.net/fast"
+      }
+    },
+    "hyperliquid_official": {
+      "hyperevm": {
+        "rpc_url": "https://rpc.hyperliquid.xyz/evm"
+      }
     }
   },
   "services": {
@@ -138,6 +154,14 @@
       "alchemy": {
         "key": "bot_alchemy",
         "chains": ["base"]
+      },
+      "flashbots": {
+        "key": "bot_flashbots",
+        "chains": ["ethereum"]
+      },
+      "hyperliquid_official": {
+        "key": "bot_hyperliquid_official",
+        "chains": ["hyperevm"]
       }
     },
     "aspiration": {
