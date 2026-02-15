@@ -6,11 +6,11 @@
   "keys": {
     "da_drpc": {
       "provider": "drpc",
-      "api_key": "AuFNZjDjxkgXsPtaPiCb5yoIRBJjXPMR8Jh1rqRhf0fE"
+      "token": "AuFNZjDjxkgXsPtaPiCb5yoIRBJjXPMR8Jh1rqRhf0fE"
     },
     "aspiration_drpc": {
       "provider": "drpc",
-      "api_key": "AuFNZjDjxkgXsPtaPiCb5yrqAnRa4AQR8JG8hhdoDp16"
+      "token": "AuFNZjDjxkgXsPtaPiCb5yrqAnRa4AQR8JG8hhdoDp16"
     },
     "aspiration_dwellir": {
       "provider": "dwellir",
@@ -18,16 +18,20 @@
     },
     "killswitch_drpc": {
       "provider": "drpc",
-      "api_key": "AuFNZjDjxkgXsPtaPiCb5yo930aAGTwR8J9IThukG97E"
+      "token": "AuFNZjDjxkgXsPtaPiCb5yo930aAGTwR8J9IThukG97E"
     },
     "bot_drpc": {
       "provider": "drpc",
-      "api_key": "AuFNZjDjxkgXsPtaPiCb5yqbT-ZGCl8R8bGfcs5opQTS"
+      "token": "AuFNZjDjxkgXsPtaPiCb5yqbT-ZGCl8R8bGfcs5opQTS"
     },
     "bot_quicknode": {
       "provider": "quicknode",
       "endpoint": "quaint-quaint-theorem",
       "token": "a5b7d2725326b95b2110a7ff328fc54e05f802c5"
+    },
+    "bot_alchemy": {
+      "provider": "alchemy",
+      "token": "MtRF7X5ATMyzFyX-vfGbzdjPTbfNR-Tl"
     },
     "bot_arbitrum_sequencer": {
       "provider": "arbitrum_sequencer"
@@ -39,24 +43,24 @@
   "provider_chain_templates": {
     "drpc": {
       "arbitrum": {
-        "rpc_url": "https://lb.drpc.live/arbitrum/{{api_key}}",
-        "ws_url": "wss://lb.drpc.live/arbitrum/{{api_key}}"
+        "rpc_url": "https://lb.drpc.live/arbitrum/{{token}}",
+        "ws_url": "wss://lb.drpc.live/arbitrum/{{token}}"
       },
       "base": {
-        "rpc_url": "https://lb.drpc.live/base/{{api_key}}",
-        "ws_url": "wss://lb.drpc.live/base/{{api_key}}"
+        "rpc_url": "https://lb.drpc.live/base/{{token}}",
+        "ws_url": "wss://lb.drpc.live/base/{{token}}"
       },
       "hyperevm": {
-        "rpc_url": "https://lb.drpc.live/hyperliquid/{{api_key}}",
-        "ws_url": "wss://lb.drpc.live/hyperliquid/{{api_key}}"
+        "rpc_url": "https://lb.drpc.live/hyperliquid/{{token}}",
+        "ws_url": "wss://lb.drpc.live/hyperliquid/{{token}}"
       },
       "ethereum": {
-        "rpc_url": "https://lb.drpc.live/ethereum/{{api_key}}",
-        "ws_url": "wss://lb.drpc.live/ethereum/{{api_key}}"
+        "rpc_url": "https://lb.drpc.live/ethereum/{{token}}",
+        "ws_url": "wss://lb.drpc.live/ethereum/{{token}}"
       },
       "solana": {
-        "rpc_url": "https://lb.drpc.live/solana/{{api_key}}",
-        "ws_url": "wss://lb.drpc.live/solana/{{api_key}}"
+        "rpc_url": "https://lb.drpc.live/solana/{{token}}",
+        "ws_url": "wss://lb.drpc.live/solana/{{token}}"
       }
     },
     "quicknode": {
@@ -89,6 +93,11 @@
       "ethereum": {
         "rpc_url": "https://api-ethereum-mainnet.n.dwellir.com/{{token}}",
         "ws_url": "wss://api-ethereum-mainnet.n.dwellir.com/{{token}}"
+      }
+    },
+    "alchemy": {
+      "base": {
+        "rpc_url": "https://base-mainnet.g.alchemy.com/v2/{{token}}"
       }
     },
     "arbitrum_sequencer": {
@@ -124,6 +133,10 @@
       },
       "base_sequencer": {
         "key": "bot_base_sequencer",
+        "chains": ["base"]
+      },
+      "alchemy": {
+        "key": "bot_alchemy",
         "chains": ["base"]
       }
     },
