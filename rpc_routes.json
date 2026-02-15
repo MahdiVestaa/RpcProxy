@@ -167,7 +167,7 @@
     "aspiration": {
       "drpc": {
         "key": "aspiration_drpc",
-        "chains": ["hyperevm", "ethereum"]
+        "chains": ["hyperevm", "ethereum", "arbitrum", "base"]
       },
       "dwellir": {
         "key": "aspiration_dwellir",
