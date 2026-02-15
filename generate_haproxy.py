@@ -263,7 +263,11 @@ def load_routes(config_path: str) -> Tuple[str, str, str, str, List[Route]]:
 
 
 def server_line_for_target(target: Target) -> str:
-    ssl = " ssl verify none" if target.transport in {"https", "wss"} else ""
+    ssl = ""
+    if target.transport in {"https", "wss"}:
+        # Some upstreams (for example QuickNode and sequencers) require SNI
+        # during TLS handshake, including active health checks.
+        ssl = f" ssl verify none sni str({target.host}) check-sni {target.host}"
     return (
         f"    server upstream {target.host}:{target.port} check inter 10s fall 3 rise 2"
         f"{ssl}"
