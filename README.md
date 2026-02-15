@@ -29,7 +29,7 @@ The generated proxy routes requests to upstream RPC providers like drpc, alchemy
 - Source IP restrictions:
   - RPC frontend allows only `10.10.0.0/16`.
   - Metrics frontend allows `10.10.0.0/16` and `138.199.220.100`.
-- HAProxy is multi-threaded (`nbthread 4`).
+- HAProxy is multi-threaded (defaults to available CPU cores).
 - Transport policy: frontend accepts `http/ws`, and upstream provider traffic is `https/wss`.
 
 ## JSON Structure (`rpc_routes.json`)

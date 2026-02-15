@@ -286,7 +286,6 @@ def render_haproxy(
             "global",
             "    log stdout format raw local0",
             "    maxconn 50000",
-            "    nbthread 4",
             "",
             "defaults",
             "    log global",
